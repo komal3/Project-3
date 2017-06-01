@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+        .popover-example {
+      margin: 0 0 10px;
+      list-style: none;
+      }
+
+      .popover-example li {
+      display: inline-block;
+      margin: 4px;
+      padding: 0px;
+      }
+
+      .btn:focus {
+      outline: none;
+      }
+
+      .modExample .btn {
+      margin: 4px 8px 4px 0;
+      }
+
+      .form-group{
+
+        margin-left: 0px;
+      }
+      .navbar-form .form-control {
+        padding: 30px 250px;
+      }
+      .btn{
+        padding: 11px;
+        font-size: 28px;
+      }
+      .genreId {
+        float: left;
+        padding: 25px;
+      }
+      .genre {
+        height: 60px;
+        width: 130px;
+      }
+      .navbar-form {
+        margin-top: 23px;
+      }
+      select{
+        font-size: large;
+      }
+      .navbar-brand {
+        font-size: 28px;
+        margin-top: 28px;
+      }
+      .form-control{
+            font-size: 46px;
+            text-align: center;
+      }
+  </style>
+  <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Movie APP</a>
+    </div>
+
+    <div class="genreId">
+    <select id="genre" >
+      <option value="1">Horror</option>
+      <option value="2">Comdey</option>
+      <option value="3">Drama</option>
+      <option value="4">Animation</option>
+      <option value="5">Documentary</option>
+      <option value="6">Romantic</option>
+    </select>
+    </div>
+<form class="navbar-form navbar-center movie" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control movies" placeholder="Search">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+</nav>
+  <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
+<!-- </form>
+    <form class="movie" >
+      <input type="text" class="searching" value="" placeholder="movie">
+      <input type="submit"  value="Search">
+    </form> -->
+<div class="jumbotron">
+<div class="container-fluid bg-3 text-center">
+  <h3>Movies</h3><br>
+  <div class="row">
+      <ul class="list list-unstyled"></ul>
+
+     </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="imagemodal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+           <img src="" class="imagepreview" style="width: 100%;" >
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+     <!-- <div class="col-sm-3">
+       <div class="list"></div>
+       <div class="img img-responsive" style="width:100%" alt="Image"></div>
+    </div>
+    <div class="col-sm-3">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div> -->
+    <!-- <ul class="list">
+
+    </ul> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
+
+
+
+<!-- <a href="#myModal6" role="button" class="btn btn-default" data-toggle="modal">swoopIn</a> -->
