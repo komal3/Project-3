@@ -3,6 +3,8 @@ $(document).ready(function(){
 
      allMovie();
 
+     var responseId;
+
 
 
   $('.movie').on('submit', function(event){
@@ -19,13 +21,17 @@ $(document).ready(function(){
         getMovie(genre_id);
   })
 
-$('a').on('click', function(event){
-  event.preventDefault();
-  
-  var id = $(this).attr('href');
-  console.log('ID: ', id);
-   getTrailers(id);
-})
+// $('#trailer').on('click', function(event){
+//   var responseId =
+//   getTrailors(responseId);
+//  console.log('response: ', )
+  // event.preventDefault();
+  //
+  // var id = $(this).attr('href');
+  // console.log('ID: ', id);
+//    //var youtuberesponse = getTrailers(id);
+//    console.console.log('youtube: ');
+// })
 
   $('.pop').on('click', function() {
   $('.imagepreview').attr('src', $(this).find('img').attr('src'));
@@ -54,12 +60,15 @@ function allMovie(){
       var result = movie[i].poster_path;
       var uniqueId = movie[i].id;
       // console.log('id:', uniqueId);
+      responseId = uniqueId;
+      console.log('response:', responseId);
         var image = images + result;
 
           $('.list').prepend([
           '<li class="col-sm-3">',
           '<h3>' + results + '</h3>',
-          '<a  href="' + uniqueId + '" class="pop" class="thumbnail"> <img src="' + image + '" /></a>',
+          // '<a onclick="getTrailers(uniqueId)" href="'+onclick+'"'></a>
+          '<a  onclick="getTrailors(responseId)" class="pop" id="trailer" class="thumbnail"> <img src="' + image + '" /></a>',
           '</li>'
         ].join(''));
           }
@@ -69,6 +78,44 @@ function allMovie(){
     .always(function(){
       console.log("I always work");
     })
+    // '<a  href="http://api.themoviedb.org/3/movie/ '+uniqueId+ '/videos?api_key=c1d2412e4b6a73bce280d933ff0dfc17" class="pop" id="trailer" class="thumbnail"> <img src="' + image + '" /></a>',
+
+    // function getTrailors() {
+    //   console.log("enter");
+    //   var uniqueId = 157336;
+    //   var apiUrl = "http://api.themoviedb.org/3/movie/ "+uniqueId+ "/videos?api_key=c1d2412e4b6a73bce280d933ff0dfc17";
+    //   console.log("formed",apiUrl );
+    // }
+}
+
+function getTrailors(responseId) {
+
+  console.log("responseId : ",responseId);
+  console.log("enter");
+  var id = responseId
+
+  console.log('id:', responseId)
+  // var uniqueId = 157336;
+  var apiUrl = "http://api.themoviedb.org/3/movie/"+id+ "/videos?api_key=c1d2412e4b6a73bce280d933ff0dfc17";
+  console.log("formed",apiUrl );
+  $.ajax({
+    url: apiUrl,
+    method: 'GET',
+    datatype: 'JSON',
+    data: {}
+  }).done(function(response){
+    console.log('response: ', response);
+    var key = response.results[0].key;
+    var youtube = "http://www.youtube.com/watch?v=" + key;
+
+// var URLsplit = youtube.split('/');
+//
+// var host = URLsplit[0] + "//" + URLsplit[2];
+//
+// var newURL = youtube.replace(host, '');
+     window.open(youtube);
+    console.log('key:', key);
+  });
 }
 
 function getMovie(movies){
@@ -149,26 +196,28 @@ function getMovie(movies){
       })
  }
 
- function getTrailers(id){
-   var apiUrl = 'http://api.themoviedb.org/3/movie/',
-       id,
-       api_key = 'videos?api_key=c1d2412e4b6a73bce280d933ff0dfc17';
-   var images = 'https://image.tmdb.org/t/p/w342';
-   console.log('genreid: ', genre_id)
 
-   $.ajax({
-        url: apiUrl + id + api_key,
-        method: 'GET',
-        datatype: 'JSON',
-        data: {}
-     }).done(function(response){
-        console.log('response', response);
-        var genreName = response.name;
-      })
-      .fail(function(error){
-        console.log('error', error);
-      })
-      .always(function(){
-        console.log("I always work");
-      })
- }
+
+ // function getTrailers(id){
+ //   var apiUrl = 'http://api.themoviedb.org/3/movie/',
+ //       id,
+ //       api_key = 'videos?api_key=c1d2412e4b6a73bce280d933ff0dfc17';
+ //   var images = 'https://image.tmdb.org/t/p/w342';
+ //   console.log('genreid: ', genre_id)
+ //
+ //   $.ajax({
+ //        url: apiUrl + id + api_key,
+ //        method: 'GET',
+ //        datatype: 'JSON',
+ //        data: {}
+ //     }).done(function(response){
+ //        console.log('response', response);
+ //        var genreName = response.name;
+ //      })
+ //      .fail(function(error){
+ //        console.log('error', error);
+ //      })
+ //      .always(function(){
+ //        console.log("I always work");
+ //      })
+ // }
