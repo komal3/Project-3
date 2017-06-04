@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
 
-     allMovie();
+  movie();
+
+function movie(){
+   allMovie();
+}
 
      var responseId;
 
