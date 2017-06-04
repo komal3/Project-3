@@ -61,14 +61,17 @@ function allMovie(){
       var uniqueId = movie[i].id;
       // console.log('id:', uniqueId);
       responseId = uniqueId;
-      console.log('response:', responseId);
+      console.log('response_ID:', responseId);
         var image = images + result;
+      //  var link = document.getElementsByTagName('a');
+        // link.setAttribute("id", uniqueId);
 
           $('.list').prepend([
           '<li class="col-sm-3">',
           '<h3>' + results + '</h3>',
           // '<a onclick="getTrailers(uniqueId)" href="'+onclick+'"'></a>
-          '<a  onclick="getTrailors(responseId)" class="pop" id="trailer" class="thumbnail"> <img src="' + image + '" /></a>',
+          '<a  id="'+uniqueId+'" onclick="getTrailors(this.id)" class="pop"  class="thumbnail"> <img src="' + image + '" /></a>',
+          //'<a  onclick="getTrailors(responseId)" class="pop" id="trailer" class="thumbnail"> <img src="' + image + '" /></a>',
           '</li>'
         ].join(''));
           }
@@ -113,8 +116,10 @@ function getTrailors(responseId) {
 // var host = URLsplit[0] + "//" + URLsplit[2];
 //
 // var newURL = youtube.replace(host, '');
-     window.open(youtube);
+  window.open(youtube);
+
     console.log('key:', key);
+    //return youtube;
   });
 }
 
@@ -155,7 +160,7 @@ function getMovie(movies){
           $('.list').prepend([
           '<li class="col-sm-3">',
           '<h3>' + results + '</h3>',
-          '<a  href="' + uniqueId + '" class="pop" class="thumbnail"><img src="' + image + '" /></a>',
+          '<a  id="'+uniqueId+'" onclick="getTrailors(this.id)"  class="pop" id="trailer" class="thumbnail"> <img src="' + image + '" /></a>',
           '</li>'
         ].join(''));
           }
